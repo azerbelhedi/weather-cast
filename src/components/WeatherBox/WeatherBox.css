@@ -1,0 +1,8 @@
+.weather-box{
+    background-color: rgb(170, 170, 251) ;
+    width :90%;
+    height :30vh;
+    margin : 10px auto ;
+    padding-left :15px;
+    font-family: 'Courier New', Courier, monospace ;
+}
