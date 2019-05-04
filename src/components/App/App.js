@@ -16,14 +16,6 @@ class App extends Component{
                     wind : 10 ,
                     pres : 5 ,
                     humd : '10%'
-                } ,
-                {
-                    country : "Tunisia" ,
-                    city : "Sousse" ,
-                    temp : 20 ,
-                    wind : 10 ,
-                    pres : 5 ,
-                    humd : '10%'
                 }
             ]
         }
@@ -37,16 +29,24 @@ class App extends Component{
         const link = `${endPoint}/data/2.5/weather?q=${data.city},${data.country}&APPID=${apiKey}` ;
 
         fetch(link)
-        .then(response => {response.json()})
+        .then(response => response.json())
         .then(res => {
             console.log(res)
+            data = {
+                city : data.city ,
+                country : data.country ,
+                humd : res.main.humidity ,
+                pres : res.main.pressure ,
+                temp : res.main.temp - 273.15 ,
+                wind : res.wind.speed
+            }
+
+            let state = this.state 
+            state.cities.push(data) ;
+            this.setState(state)
+            console.log(this.state)
         })
         .catch(error => {console.log(error)})
-
-        let state = this.state 
-        state.cities.push(data) ;
-        this.setState(state)
-        console.log(this.state)
     }
 
     render(){

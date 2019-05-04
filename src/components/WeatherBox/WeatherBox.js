@@ -15,7 +15,7 @@ class WeatherBox extends Component{
                     <h6>{this.props.data.country}</h6>
                 </div>
                 <div className="content">
-                    <h3>tempreture : {this.props.data.temp} </h3>
+                    <h3>tempreture : {this.props.data.temp}C </h3>
                     <h3>wind : {this.props.data.wind} </h3>
                     <h3>pressure : {this.props.data.pres} </h3>
                     <h3>humidity : {this.props.data.humd} </h3>
